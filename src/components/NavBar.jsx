@@ -21,18 +21,9 @@ export const Body=styled.div`
 
 export default function NavBar() {
     const [MenuOpened, setMenuOpened] = useState(false)
-    const theme=createTheme({
-        palette:{
-            primary:{
-                main:"rgb(255, 255, 255)"
-            },
-            secondary:{
-                main:"rgb(192, 188, 255)"
-            }
-        }
-    })    
+    
     return (
-        <ThemeProvider theme={theme}>
+        <>
             <Body>
             <div className="appname">Notes</div>
 
@@ -76,6 +67,6 @@ export default function NavBar() {
                 </List>
             </SwipeableDrawer>
 
-        </ThemeProvider>
+        </>
     )
 }

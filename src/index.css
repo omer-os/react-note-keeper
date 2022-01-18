@@ -19,3 +19,12 @@ body,html{
   --f1: #23283f;
   --f2: rgb(49, 49, 49);
 }
+
+
+div.MuiOutlinedInput-root{
+  border: 1px solid white; 
+}
+
+*::-webkit-scrollbar{
+  display: none;
+}
