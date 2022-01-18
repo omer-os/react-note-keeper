@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@mui/system";
-import { createTheme } from "@mui/material";
+import { createTheme, Fab } from "@mui/material";
 import React, { useState } from "react";
 import styled from "styled-components";
 import NavBar from "./components/NavBar";
@@ -13,6 +13,7 @@ export const Body = styled.div`
   background: #23283f;
   overflow: hidden;
   justify-content: center;
+  position: relative;
 `;
 
 export default function App() {
@@ -34,6 +35,8 @@ export default function App() {
       <Body>
         <NavBar AllNotes={AllNotes} setAllNotes={setAllNotes}/>
         <Notes AllNotes={AllNotes} setAllNotes={setAllNotes}/>
+        
+
       </Body>
     </ThemeProvider>
   );

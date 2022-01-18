@@ -1,11 +1,11 @@
-import { IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Typography } from '@mui/material'
+import { Fab, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Typography } from '@mui/material'
 import React from 'react'
 import styled from 'styled-components'
 import AddNote from './AddNote'
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from 'react';
 import NewNote from './NewNote';
-
+import FilterAltRoundedIcon from '@mui/icons-material/FilterAltRounded';
 
 export const Body=styled.div`
     display: flex;
@@ -18,6 +18,7 @@ export const Body=styled.div`
         width: 100%;
         border: 1px solid white;
         overflow-y: scroll;
+        position: relative;
     }
 `
 
@@ -42,6 +43,14 @@ export default function Notes({AllNotes, setAllNotes}) {
                         })
                     }
                 </List>
+
+                <Fab sx={{
+                    position:"absolute",
+                    right:"10px",
+                    bottom:"10px"
+                }}>
+                <FilterAltRoundedIcon />
+                </Fab>
             </div>
         </Body>
     )
