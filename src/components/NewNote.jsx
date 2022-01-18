@@ -1,18 +1,40 @@
-import { IconButton, ListItem, ListItemSecondaryAction, ListItemText, Typography } from "@mui/material";
-import React from "react";
-import DeleteIcon from '@mui/icons-material/Delete';
+import {
+  Collapse,
+  IconButton,
+  ListItem,
+  ListItemSecondaryAction,
+  ListItemText,
+  Slide,
+  Typography,
+} from "@mui/material";
+import React, { useState } from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-export default function NewNote({noteText, noteData}) {
+
+
+export default function NewNote({ noteText, noteData, setAllNotes, AllNotes }) {
+  const [Col, setCol] = useState(true);
+
+  const handleDelete = () => {
+    setCol(false);
+    setTimeout(() => {
+      setAllNotes(AllNotes.filter((note) => note.noteData.id !== noteData.id));
+    }, 200);
+  };
   return (
-    <ListItem id={toString(noteData.id)} button>
-      <ListItemText>
-        <Typography color="white">{noteText}</Typography>
-        <ListItemSecondaryAction>
-          <IconButton color="inherit">
-            <DeleteIcon sx={{ fill: "white" }} />
-          </IconButton>
-        </ListItemSecondaryAction>
-      </ListItemText>
+    <Slide in={true} direction="right" >
+      <ListItem id={toString(noteData.id)}>
+      <Collapse in={Col}>{
+        <ListItemText>
+          <Typography color="white">{noteText}</Typography>
+          <ListItemSecondaryAction>
+            <IconButton onClick={() => handleDelete()} color="inherit">
+              <DeleteIcon sx={{ fill: "white" }} />
+            </IconButton>
+          </ListItemSecondaryAction>
+        </ListItemText>}
+      </Collapse>
     </ListItem>
+    </Slide>
   );
 }
